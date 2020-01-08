@@ -21189,7 +21189,6 @@ function () {
   function Month(month, year, locale, firstDayOfWeek) {
     _classCallCheck(this, Month);
 
-    console.log(month, year, locale, firstDayOfWeek);
     month_moment.locale(locale);
 
     if (firstDayOfWeek) {
