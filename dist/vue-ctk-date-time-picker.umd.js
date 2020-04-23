@@ -20641,12 +20641,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"29f78236-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/VueCtkDateTimePicker/index.vue?vue&type=template&id=f6260a7a&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"29f78236-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/VueCtkDateTimePicker/index.vue?vue&type=template&id=2bb8088e&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"click-outside",rawName:"v-click-outside",value:(_vm.closePicker),expression:"closePicker"}],ref:"parent",staticClass:"date-time-picker",attrs:{"id":((_vm.$attrs.id) + "-wrapper")}},[(_vm.hasInput)?_c('CustomInput',_vm._b({ref:"custom-input",attrs:{"id":((_vm.$attrs.id) + "-input"),"dark":_vm.dark,"hint":_vm.hint,"error-hint":_vm.error,"is-focus":_vm.hasPickerOpen,"color":_vm.color,"label":_vm.label,"no-label":_vm.noLabel,"input-size":_vm.inputSize,"no-clear-button":_vm.noClearButton},on:{"focus":function($event){return _vm.toggleDatePicker(true)},"clear":function($event){return _vm.$emit('input', null)}},model:{value:(_vm.dateFormatted),callback:function ($$v) {_vm.dateFormatted=$$v},expression:"dateFormatted"}},'CustomInput',_vm.$attrs,false)):_vm._t("default"),(_vm.hasPickerOpen && _vm.overlay)?_c('div',{staticClass:"time-picker-overlay",on:{"click":function($event){$event.stopPropagation();return _vm.closePicker($event)}}}):_vm._e(),(!_vm.isDisabled)?_c('PickersContainer',{ref:"agenda",attrs:{"id":((_vm.$attrs.id) + "-picker-container"),"visible":_vm.hasPickerOpen,"position":_vm.pickerPosition,"inline":_vm.inline,"color":_vm.color,"button-color":_vm.buttonColor,"dark":_vm.dark,"no-header":_vm.noHeader,"only-time":_vm.onlyTime,"only-date":_vm.hasOnlyDate,"minute-interval":_vm.minuteInterval,"locale":_vm.locale,"min-date":_vm.minDate,"max-date":_vm.maxDate,"format":_vm.format,"no-weekends-days":_vm.noWeekendsDays,"disabled-weekly":_vm.disabledWeekly,"has-button-validate":_vm.hasButtonValidate,"has-no-button":_vm.hasNoButton,"range":_vm.range,"disabled-dates":_vm.disabledDates,"disabled-hours":_vm.disabledHours,"enabled-dates":_vm.enabledDates,"no-shortcuts":_vm.noShortcuts,"button-now-translation":_vm.buttonNowTranslation,"no-button-now":_vm.noButtonNow,"first-day-of-week":_vm.firstDayOfWeek,"shortcut":_vm.shortcut,"custom-shortcuts":_vm.customShortcuts,"no-keyboard":_vm.noKeyboard,"right":_vm.right,"behaviour":_vm._behaviour},on:{"validate":_vm.validate,"close":_vm.closePicker},model:{value:(_vm.dateTime),callback:function ($$v) {_vm.dateTime=$$v},expression:"dateTime"}}):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/VueCtkDateTimePicker/index.vue?vue&type=template&id=f6260a7a&
+// CONCATENATED MODULE: ./src/VueCtkDateTimePicker/index.vue?vue&type=template&id=2bb8088e&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
@@ -24119,7 +24119,6 @@ var defaultBehaviour = {
     }
   },
   mounted: function mounted() {
-    console.log('loaded');
     this.pickerPosition = this.getPosition();
     this.pickerOpen = this.open;
 
