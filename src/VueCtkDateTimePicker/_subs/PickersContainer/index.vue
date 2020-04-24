@@ -173,7 +173,7 @@
         if (typeof window === 'undefined') return null
 
         return !this.inline
-          ? window.innerWidth < 412
+          ? window.innerWidth < 415
             ? null
             : this.position === 'bottom'
               ? { top: '100%', marginBottom: '10px' }
