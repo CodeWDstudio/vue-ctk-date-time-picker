@@ -312,7 +312,6 @@
         }
       },
       setBodyOverflow (value) {
-        console.log(window.innerWidth, value)
         if (window.innerWidth < 415) {
           const body = document.getElementsByTagName('body')[0]
           body.style.overflow = value ? 'hidden' : null
