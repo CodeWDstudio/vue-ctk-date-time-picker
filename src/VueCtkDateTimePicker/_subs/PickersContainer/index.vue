@@ -260,7 +260,7 @@
         this.month = this.getMonth()
         this.componentKey += 1
       },
-      firstDayOfWeek() {
+      firstDayOfWeek () {
         this.month = this.getMonth()
       }
     },
@@ -305,7 +305,7 @@
         if (this.range) {
           const rangeVal = payload || this.value
           const date = rangeVal && (rangeVal.end || rangeVal.start) ? moment(rangeVal.end ? rangeVal.end : rangeVal.start) : moment()
-          return new Month(date.month(), date.year())
+          return new Month(date.month(), date.year(), this.locale, parseInt(this.firstDayOfWeek))
         } else if (this.value) {
           return new Month(moment(this.value, 'YYYY-MM-DD').month(), moment(this.value, 'YYYY-MM-DD').year(), this.locale, parseInt(this.firstDayOfWeek))
         } else {

@@ -14,14 +14,14 @@
       class="shortcut-button"
       @click="select(shortcut)"
     >
-      <span class="lm-fs-12 flex-1">
-        {{ shortcut.label }}
-      </span>
+      <span class="lm-fs-12 flex-1">{{ shortcut.label }}</span>
     </CustomButton>
   </div>
 </template>
 
 <script>
+/** @format */
+
   import moment from 'moment'
   import CustomButton from '@/VueCtkDateTimePicker/_subs/CustomButton'
 
@@ -43,12 +43,13 @@
       dateTime: { type: Object, default: null },
       customShortcuts: {
         type: Array,
-        default: () => ([]),
-        validator: val => val.every(shortcut => {
-          const isValueInteger = Number.isInteger(shortcut.value)
-          const isFunction = typeof shortcut.value === 'function'
-          return shortcut.key && shortcut.label && (isValueInteger || isFunction ? true : SHORTCUT_TYPES.includes(shortcut.value))
-        })
+        default: () => [],
+        validator: (val) =>
+          val.every((shortcut) => {
+            const isValueInteger = Number.isInteger(shortcut.value)
+            const isFunction = typeof shortcut.value === 'function'
+            return shortcut.key && shortcut.label && (isValueInteger || isFunction ? true : SHORTCUT_TYPES.includes(shortcut.value))
+          })
       },
       height: { type: Number, required: true }
     },
@@ -74,7 +75,7 @@
          * Find the pre-selected shortcut
          */
         if (this.value) {
-          const selectedShortcut = this.customShortcuts.find(shortcut => shortcut.key === this.value)
+          const selectedShortcut = this.customShortcuts.find((shortcut) => shortcut.key === this.value)
           if (selectedShortcut) this.select(selectedShortcut)
         }
       },
@@ -83,8 +84,8 @@
        * @function noticeDeprecation
        */
       noticeDeprecation () {
-        const useDeprecatedAPI = this.customShortcuts.find(shortcut => typeof shortcut.isSelected !== 'undefined' || typeof shortcut.key === 'undefined')
-        if (useDeprecatedAPI) console.warn('[vue-ctk-date-time-picker]: You\'re using a deprecated API. Check the changelog (https://github.com/chronotruck/vue-ctk-date-time-picker/releases) for migration guide.')
+        const useDeprecatedAPI = this.customShortcuts.find((shortcut) => typeof shortcut.isSelected !== 'undefined' || typeof shortcut.key === 'undefined')
+        if (useDeprecatedAPI) console.warn("[vue-ctk-date-time-picker]: You're using a deprecated API. Check the changelog (https://github.com/chronotruck/vue-ctk-date-time-picker/releases) for migration guide.")
       },
       /**
        * Returns the shortcut values according to the key
@@ -93,7 +94,7 @@
        * @returns {Object}
        */
       getShortcutByKey (shortcutKey) {
-        const shortcut = this.customShortcuts.find(sc => sc.key === shortcutKey)
+        const shortcut = this.customShortcuts.find((sc) => sc.key === shortcutKey)
         if (!shortcut) return false
         const { value } = shortcut
 
@@ -125,7 +126,13 @@
         }
 
         switch (value) {
-        case 'year': case 'month': case 'quarter': case 'week': case 'isoWeek': case 'day': case 'date':
+        case 'year':
+        case 'month':
+        case 'quarter':
+        case 'week':
+        case 'isoWeek':
+        case 'day':
+        case 'date':
           return {
             start: moment().startOf(value),
             end: moment().endOf(value),
@@ -166,6 +173,7 @@
       select (shortcut) {
         this.selectedShortcut = shortcut.key
         const { start, end, value } = this.getShortcutByKey(this.selectedShortcut)
+
         this.$emit('change-range', { start, end, value })
 
         /**
@@ -185,47 +193,49 @@
 </script>
 
 <style lang="scss" scoped>
-  .shortcuts-container {
-    width: 140px;
-    max-width: 140px;
-    min-width: 140px;
-    padding: 10px 5px;
-    border-right: 1px solid #EAEAEA;
-    overflow: auto;
-    button.shortcut-button {
-      margin-bottom: 10px;
-      width: 100%;
-    }
-    &.is-dark {
-      border-color: lighten(#424242, 20%);
-    }
-  }
+/** @format */
 
-  @media screen and (max-width: 415px) {
-    .shortcuts-container:not(.inline) {
-      width: 100%;
-      max-width: 100%;
-      min-width: 100%;
-      max-width: 100vw;
-      min-width: 100vw;
-      border-right: 0;
-      border-bottom: 1px solid #EAEAEA;
-      height: 52px !important;
-      flex-direction: row;
-      display: flex;
-      white-space: nowrap;
+.shortcuts-container {
+	width: 140px;
+	max-width: 140px;
+	min-width: 140px;
+	padding: 10px 5px;
+	border-right: 1px solid #eaeaea;
+	overflow: auto;
+	button.shortcut-button {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+	&.is-dark {
+		border-color: lighten(#424242, 20%);
+	}
+}
 
-      .shortcut-button {
-        margin-bottom: 0;
-      }
+@media screen and (max-width: 415px) {
+	.shortcuts-container:not(.inline) {
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		max-width: 100vw;
+		min-width: 100vw;
+		border-right: 0;
+		border-bottom: 1px solid #eaeaea;
+		height: 52px !important;
+		flex-direction: row;
+		display: flex;
+		white-space: nowrap;
 
-      .shortcut-button:not(:last-child) {
-        margin-right: 10px;
-      }
-    }
+		.shortcut-button {
+			margin-bottom: 0;
+		}
 
-    .shortcuts-container.is-dark {
-      border-color: lighten(#424242, 20%);
-    }
-  }
+		.shortcut-button:not(:last-child) {
+			margin-right: 10px;
+		}
+	}
+
+	.shortcuts-container.is-dark {
+		border-color: lighten(#424242, 20%);
+	}
+}
 </style>

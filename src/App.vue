@@ -281,6 +281,7 @@
               id: 'DateTimePicker',
               minDate: '2018-04-05',
               maxDate: '2018-04-24'
+
             }
           },
           {
@@ -305,7 +306,8 @@
               format: 'YYYY-MM-DD',
               color: 'purple',
               label: 'Select date range',
-              id: 'RangeDatePicker'
+              id: 'RangeDatePicker',
+              firstDayOfWeek: 1
             }
           },
           {
@@ -366,7 +368,8 @@
               formatted: 'll',
               range: true,
               id: 'InlinePicker',
-              disabledWeekly: [0, 4, 6],
+              disabledWeekly: [],
+              firstDayOfWeek: 1,
               noKeyboard: true
             }
           },

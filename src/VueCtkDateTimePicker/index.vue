@@ -199,7 +199,7 @@
       open (val) {
         if (this.isDisabled) return
         this.pickerOpen = val
-      },
+      }
     },
     mounted () {
       this.pickerPosition = this.getPosition()
